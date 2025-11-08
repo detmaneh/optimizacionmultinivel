@@ -448,7 +448,7 @@ def plot_utilization(lp_model: 'DistributionNetworkLP'):
         formatter.set_scientific(False)
         axes[i].yaxis.set_major_formatter(formatter)
 
-    plot_col.pyplot(fig, use_container_width=True) # Mostrar el gráfico en Streamlit
+    st.pyplot(fig, use_container_width=True) # Mostrar el gráfico en Streamlit
 
 def plot_cost_breakdown(lp_model: 'DistributionNetworkLP', cost_data: Dict):
 
@@ -510,7 +510,7 @@ def plot_cost_breakdown(lp_model: 'DistributionNetworkLP', cost_data: Dict):
 
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     
-    st.pyplot(fig, use_container_width=True)
+    st.pyplot(fig)
 
 def display_final_summary(cost_data: Dict):
     total = cost_data['Costo Total']
