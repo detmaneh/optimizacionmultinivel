@@ -338,7 +338,7 @@ def plot_flow_distribution_st(lp_model: 'DistributionNetworkLP'):
 
     plt.tight_layout(rect=[0, 0, 0.88, 1])
     # Mostrar la figura en Streamlit
-    plot_col.pyplot(fig, use_container_width=True) # Mostrar el gráfico en Streamlit
+    st.pyplot(fig, use_container_width=True)
 
 def plot_utilization(lp_model: 'DistributionNetworkLP'):
     modelo = lp_model.model
@@ -459,7 +459,6 @@ def plot_cost_breakdown(lp_model: 'DistributionNetworkLP', cost_data: Dict):
     costo_produccion = lp_model.costo_prod
     costo_planta_centro = lp_model.costo_pc
     costo_centro_cliente = lp_model.costo_cj
-        
     costo_prod = sum(
         costo_produccion.get((p, k), 0) * (modelo.x[p, c, k].value or 0)
         for p in P for c in C for k in K
@@ -511,7 +510,7 @@ def plot_cost_breakdown(lp_model: 'DistributionNetworkLP', cost_data: Dict):
 
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     
-    plot_col.pyplot(fig, use_container_width=True) # Mostrar el gráfico en Streamlit
+    st.pyplot(fig, use_container_width=True)
 
 def display_final_summary(cost_data: Dict):
     total = cost_data['Costo Total']
